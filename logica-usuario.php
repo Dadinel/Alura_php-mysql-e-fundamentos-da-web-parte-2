@@ -1,6 +1,7 @@
 <?php
-
-    session_start();
+    if(session_status() != PHP_SESSION_ACTIVE) {
+        session_start();
+    }
 
     function usuarioEstaLogado() {
         return isset($_SESSION["usuario_logado"]);
