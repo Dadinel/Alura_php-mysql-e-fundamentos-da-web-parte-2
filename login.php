@@ -7,11 +7,12 @@
     //var_dump($usuario); //Exibe no corpo do HTML o valor da variável
 
     if($usuario == null) {
+        $_SESSION["danger"] = "Usuário ou senha inválido";
         header("Location: index.php?login=0");
     } else {
-        setcookie("usuario_logado", $usuario["email"], time() + ( 60 * 15 ) ); //15 minutos para expirar o cookie
+        $_SESSION["success"] = "Usuário logado com sucesso.";
         logaUsuario($usuario["email"]);
-        header("Location: index.php?login=1");
+        header("Location: index.php");
     }
 
     die();

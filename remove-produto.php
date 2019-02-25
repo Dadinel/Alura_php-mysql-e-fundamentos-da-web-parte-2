@@ -2,6 +2,7 @@
     include("cabecalho.php");
     include("conecta.php");
     include("banco-produto.php");
+    include("logica-usuario.php");
 ?>
 
     <?php 
@@ -10,7 +11,8 @@
         if(removeProduto($conexao, $id)) { ?>
             <p class="text-success">Produto <?=$id;?> removido!</p>
             <?php
-                header("Location: produto-lista.php?removido=true");
+                $_SESSION["success"] = "Produto removido com sucesso.";
+                header("Location: produto-lista.php");
                 die();
             ?>
 
