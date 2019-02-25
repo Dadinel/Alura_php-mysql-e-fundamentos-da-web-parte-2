@@ -3,8 +3,8 @@
     include("logica-usuario.php");
 ?>
 
-<?php if(isset($_GET["login"]) && $_GET["login"]==true) {?>
-    <p class="alert-success">Logado com sucesso</p>
+<?php if(isset($_GET["logout"]) && $_GET["logout"]==true) {?>
+    <p class="alert-success">Deslogado com sucesso</p>
 <?php } ?>
 
 <?php if(isset($_GET["login"]) && $_GET["login"]==false) {?>
@@ -19,6 +19,7 @@
 
     <?php if(usuarioEstaLogado()) { ?>
         <p class="text-success">Você está logado como <?=usuarioLogado();?>.</p>
+        <a href="logout.php">Deslogar</a>
     <?php } else { ?>
         <h2>Login</h2>
 
