@@ -1,14 +1,16 @@
 <?php
 
-function listaCategorias($conexao) {
-    //$categorias = []; //Nova sintaxe
-    $categorias = array();
-    $query = "select * from categorias";
-    $resultado = mysqli_query($conexao, $query);
+    require_once("conecta.php");
 
-    while($categoria = mysqli_fetch_assoc($resultado)) {
-        array_push($categorias, $categoria);
+    function listaCategorias($conexao) {
+        //$categorias = []; //Nova sintaxe
+        $categorias = array();
+        $query = "select * from categorias";
+        $resultado = mysqli_query($conexao, $query);
+
+        while($categoria = mysqli_fetch_assoc($resultado)) {
+            array_push($categorias, $categoria);
+        }
+
+        return $categorias;
     }
-
-    return $categorias;
-}

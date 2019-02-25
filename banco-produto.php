@@ -1,5 +1,7 @@
 <?php
 
+    require_once("conecta.php");
+
 function listaSoProdutos($conexao) {
     //$produtos = []; //Nova sintaxe
     $produtos = array();
@@ -25,6 +27,8 @@ function listaProdutos($conexao) {
 }
 
 function insereProduto($conexao, $nome, $preco, $descricao, $categoria_id, $usado) {
+    $nome = mysqli_real_escape_string($conexao, $nome);
+    $descricao = mysqli_real_escape_string($conexao, $descricao);
     $query = "insert into produtos (nome,preco,descricao,categoria_id,usado) values ('{$nome}',{$preco},'{$descricao}',{$categoria_id},{$usado});";
     return mysqli_query($conexao, $query);
 }
@@ -35,6 +39,8 @@ function removeProduto($conexao, $id) {
 }
 
 function alteraProduto($conexao, $id, $nome, $preco, $descricao, $categoria_id, $usado) {
+    $nome = mysqli_real_escape_string($conexao, $nome);
+    $descricao = mysqli_real_escape_string($conexao, $descricao);
     $query = "update produtos set nome='{$nome}', preco={$preco}, descricao='{$descricao}',categoria_id={$categoria_id}, usado={$usado} where id = {$id};";
     return mysqli_query($conexao, $query);
 }
