@@ -1,0 +1,2 @@
+create table usuarios (id integer auto_increment primary key, email varchar(255), senha varchar(255));
+insert into usuarios (email, senha) values ('dadinel@hotmail.com', 'e10adc3949ba59abbe56e057f20f883e');
