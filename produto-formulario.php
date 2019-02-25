@@ -2,7 +2,10 @@
     include("cabecalho.php");
     include("conecta.php");
     include("banco-categoria.php");
+    include("logica-usuario.php");
 ?>
+
+<?php verificaUsuario(); ?>
 
 <h1>Formulário de produto</h1>
     <form action="adiciona-produto.php" method="post">
